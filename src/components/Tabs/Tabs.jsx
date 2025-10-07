@@ -1,7 +1,11 @@
 import cn from 'classnames';
 
-export const Tabs = ({ tabs, activeTabId, onTabSelected }) => {
+export const Tabs = ({ tabs = [], activeTabId, onTabSelected }) => {
   const activeTab = tabs.find(tab => tab.id === activeTabId) || tabs[0];
+
+  if (tabs.length === 0) {
+    return null;
+  }
 
   return (
     <div data-cy="TabsComponent">
